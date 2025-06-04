@@ -19,7 +19,7 @@ wa_annonce_view:
         _controller: WAAnnonceBundle:Annonce:view
     requirements:
         id: \d+
-        format : html|xml
+        _format: html|xml
 
 wa_annonce_edit:
     path:      /annonce/edit/{id}
@@ -27,7 +27,7 @@ wa_annonce_edit:
         _controller: WAAnnonceBundle:Annonce:edit
     requirements:
         id: \d+
-        format : html|xml
+        _format: html|xml
 
 wa_annonce_delete:
     path:      /annonce/delete/{id}
@@ -35,4 +35,13 @@ wa_annonce_delete:
         _controller: WAAnnonceBundle:Annonce:delete
     requirements:
         id: \d+
-        format : html|xml
+        _format: html|xml
+
+wa_annonce_view_slug:
+    path:      /annonce/{year}/{slug}.{_format}
+    defaults:
+        _controller: WAAnnonceBundle:Annonce:viewSlug
+        _format: html
+    requirements:
+        year: \d+
+        _format: html|xml
